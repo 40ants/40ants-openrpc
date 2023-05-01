@@ -4,6 +4,7 @@
   (:import-from #:40ants-slynk)
   (:import-from #:local-time)
   (:import-from #:cl+ssl)
+  (:import-from #:with-user-abort)
   (:import-from #:clack
                 #:clackup)
   (:import-from #:openrpc-server
@@ -99,4 +100,14 @@
                         *default-interface*)
          :debug (when (uiop:getenv "DEBUG")
                   t))
-  (loop do (sleep 5)))
+
+  (handler-case
+      (with-user-abort:with-user-abort
+        (loop do (sleep 5)))
+    (with-user-abort:user-abort ()
+      (log:info "Quitting gracefully")
+      (stop)
+      ;; Wait 5 seconds till server will stop
+      (loop repeat 5
+            do (sleep 1))
+      (uiop:quit 0))))
