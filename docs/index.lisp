@@ -96,8 +96,8 @@ This is a set of opionated helpers for starting Common Lisp [OpenRPC][OpenRPC] s
 Also, it can manage a multiple OpenRPC servers in the one Lisp image.
 
 The easiest way to start a server is to define one or more api methods using [OpenRPC][OpenRPC] library
-and then call START. This will bring API on http://localhost:8080/ and it's spec will be available
-as http://localhost:8080/openrpc.json
+and then call START. This will bring API on http://localhost:8000/ and it's spec will be available
+as http://localhost:8000/openrpc.json
 
 This system uses following environment variables to configure the server:
 
