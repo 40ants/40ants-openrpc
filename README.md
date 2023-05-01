@@ -52,8 +52,8 @@ This is a set of opionated helpers for starting Common Lisp `OpenRPC` servers wh
 Also, it can manage a multiple Open`RPC` servers in the one Lisp image.
 
 The easiest way to start a server is to define one or more api methods using `OpenRPC` library
-and then call [`start`][999c]. This will bring `API` on http://localhost:8080/ and it's spec will be available
-as http://localhost:8080/openrpc.json
+and then call [`start`][999c]. This will bring `API` on http://localhost:8000/ and it's spec will be available
+as http://localhost:8000/openrpc.json
 
 This system uses following environment variables to configure the server:
 
@@ -72,7 +72,7 @@ This system uses following environment variables to configure the server:
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29"></a>
 
-#### [function](f57b) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
+#### [function](bdf0) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
 
 Starts Open `RPC` `API` server on given `PORT` and `INTERFACE`.
 Also it configures logging and Slynk.
@@ -82,13 +82,13 @@ You will find more details in the [`40ants-slynk`][04ac] system documentation.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29"></a>
 
-#### [function](dfdb) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
+#### [function](192f) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
 
 Stops `API` server running on given `PORT` and `INTERFACE`.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29"></a>
 
-#### [function](dbf8) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
+#### [function](a9b9) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
 
 Entry point for `API` webserver, started in the Docker or Kubernetes.
 It works like a [`start`][999c] but blocks forever.
@@ -101,9 +101,9 @@ It works like a [`start`][999c] but blocks forever.
 [04ac]: https://40ants.com/slynk/#x-28-23A-28-2812-29-20BASE-CHAR-20-2E-20-2240ants-slynk-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29
 [8702]: https://github.com/40ants/40ants-openrpc
 [bc95]: https://github.com/40ants/40ants-openrpc/actions
-[f57b]: https://github.com/40ants/40ants-openrpc/blob/bd3007984333e15c4b8f4b72794ccc0c062e9de6/src/server.lisp#L40
-[dfdb]: https://github.com/40ants/40ants-openrpc/blob/bd3007984333e15c4b8f4b72794ccc0c062e9de6/src/server.lisp#L82
-[dbf8]: https://github.com/40ants/40ants-openrpc/blob/bd3007984333e15c4b8f4b72794ccc0c062e9de6/src/server.lisp#L92
+[bdf0]: https://github.com/40ants/40ants-openrpc/blob/26deb66dfeaa86356ab890dbe5f9ff8c9aaaaa6f/src/server.lisp#L40
+[192f]: https://github.com/40ants/40ants-openrpc/blob/26deb66dfeaa86356ab890dbe5f9ff8c9aaaaa6f/src/server.lisp#L82
+[a9b9]: https://github.com/40ants/40ants-openrpc/blob/26deb66dfeaa86356ab890dbe5f9ff8c9aaaaa6f/src/server.lisp#L92
 [a84b]: https://github.com/40ants/40ants-openrpc/issues
 [422a]: https://quickdocs.org/40ants-logging
 [2e1d]: https://quickdocs.org/40ants-slynk
