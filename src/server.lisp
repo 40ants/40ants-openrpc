@@ -41,6 +41,12 @@
                 (api openrpc-server/api::default-api)
                 (interface *default-interface*)
                 (debug nil))
+  "Starts Open RPC API server on given PORT and INTERFACE.
+   Also it configures logging and Slynk.
+
+   Slynk is started only if SLYNK_PORT env variable is set to some value.
+   You will find more details in the 40ANTS-SLYNK system documentation.
+"
   (when (find-server port interface)
     (error "Server already running"))
 
@@ -75,6 +81,7 @@
 
 (defun stop (&key (port *default-port*)
                (interface *default-interface*))
+  "Stops API server running on given PORT and INTERFACE."
   (let ((server (find-server port interface)))
     (when server
       (clack:stop server)
@@ -82,10 +89,14 @@
   (values))
 
 
-(defun start-in-production ()
-  ;; Entry point for webapp, started in the Docker
-  (start :port (parse-integer (or (uiop:getenv "APP_PORT")
+(defun start-in-production (&key (api openrpc-server/api::default-api))
+  "Entry point for API webserver, started in the Docker or Kubernetes.
+   It works like a START but blocks forever."
+  (start :api api
+         :port (parse-integer (or (uiop:getenv "APP_PORT")
                                   *default-port*))
          :interface (or (uiop:getenv "APP_INTERFACE")
-                        *default-interface*))
+                        *default-interface*)
+         :debug (when (uiop:getenv "DEBUG")
+                  t))
   (loop do (sleep 5)))

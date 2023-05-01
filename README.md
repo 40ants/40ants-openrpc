@@ -55,27 +55,55 @@ The easiest way to start a server is to define one or more api methods using `Op
 and then call [`start`][999c]. This will bring `API` on http://localhost:8080/ and it's spec will be available
 as http://localhost:8080/openrpc.json
 
+This system uses following environment variables to configure the server:
+
+* `APP_PORT` and `APP_INTERFACE` are used in [`start-in-production`][e921] function to control on which port and interface
+  `API` should be started on.
+
+* `DEBUG` also used in [`start-in-production`][e921] function to control how verbose logging should be. If it is given
+  then logging will be with `DEBUG` level.
+
+* `CORS_ALLOWED_ORIGIN` and `CORS_ALLOWED_HEADERS` are control how `API` will respond with `CORS` related headers.
+  Learn more about used middleware in [`clack-cors`][5314] system documentation.
+
 <a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
 ### API
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29"></a>
 
-#### [function] `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
+#### [function](49e5) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
+
+Starts Open `RPC` `API` server on given `PORT` and `INTERFACE`.
+Also it configures logging and Slynk.
+
+Slynk is started only if `SLYNK`_`PORT` env variable is set to some value.
+You will find more details in the [`40ants-slynk`][04ac] system documentation.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29"></a>
 
-#### [function] `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
+#### [function](6714) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
+
+Stops `API` server running on given `PORT` and `INTERFACE`.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29"></a>
 
-#### [function] `40ants-openrpc/server:start-in-production`
+#### [function](9655) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
+
+Entry point for `API` webserver, started in the Docker or Kubernetes.
+It works like a [`start`][999c] but blocks forever.
 
 
 [e778]: https://40ants.com/40ants-openrpc/
 [999c]: https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29
+[e921]: https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29
+[5314]: https://40ants.com/clack-cors/#x-28-23A-28-2810-29-20BASE-CHAR-20-2E-20-22clack-cors-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29
+[04ac]: https://40ants.com/slynk/#x-28-23A-28-2812-29-20BASE-CHAR-20-2E-20-2240ants-slynk-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29
 [8702]: https://github.com/40ants/40ants-openrpc
 [bc95]: https://github.com/40ants/40ants-openrpc/actions
+[49e5]: https://github.com/40ants/40ants-openrpc/blob/b33df74b2500fe4908273ac58dee70f6ab4ee474/src/server.lisp#L40
+[6714]: https://github.com/40ants/40ants-openrpc/blob/b33df74b2500fe4908273ac58dee70f6ab4ee474/src/server.lisp#L82
+[9655]: https://github.com/40ants/40ants-openrpc/blob/b33df74b2500fe4908273ac58dee70f6ab4ee474/src/server.lisp#L92
 [a84b]: https://github.com/40ants/40ants-openrpc/issues
 [422a]: https://quickdocs.org/40ants-logging
 [2e1d]: https://quickdocs.org/40ants-slynk

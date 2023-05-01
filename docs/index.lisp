@@ -36,8 +36,7 @@
   
   (list :theme
         (find-symbol "40ANTS-THEME"
-                     (find-package "40ANTS-DOC-THEME-40ANTS")))
-  )
+                     (find-package "40ANTS-DOC-THEME-40ANTS"))))
 
 
 (defsection @index (:title "40ants-openrpc - A set of helpers to start JSON-RPC server based on https://40ants.com/openrpc/ library."
@@ -50,10 +49,16 @@
                                    "40A"
                                    "OpenRPC"
                                    "API"
+                                   "CORS"
+                                   "SLYNK"
                                    "JSON-RPC"
                                    "Unlicense"
+                                   "SLYNK_PORT"
                                    "REPL"
                                    "GIT")
+                    :external-docs ("https://40ants.com/slynk/"
+                                    "https://40ants.com/openrpc/"
+                                    "https://40ants.com/clack-cors/")
                     :external-links (("OpenRPC" . "https://40ants.com/openrpc/")))
   (40ants-openrpc system)
   "
@@ -93,6 +98,15 @@ Also, it can manage a multiple OpenRPC servers in the one Lisp image.
 The easiest way to start a server is to define one or more api methods using [OpenRPC][OpenRPC] library
 and then call START. This will bring API on http://localhost:8080/ and it's spec will be available
 as http://localhost:8080/openrpc.json
+
+This system uses following environment variables to configure the server:
+
+- `APP_PORT` and `APP_INTERFACE` are used in START-IN-PRODUCTION function to control on which port and interface
+  API should be started on.
+- `DEBUG` also used in START-IN-PRODUCTION function to control how verbose logging should be. If it is given
+  then logging will be with `DEBUG` level.
+- `CORS_ALLOWED_ORIGIN` and `CORS_ALLOWED_HEADERS` are control how API will respond with CORS related headers.
+  Learn more about used middleware in CLACK-CORS system documentation.
 "
   (@api section))
 
