@@ -72,7 +72,7 @@ This system uses following environment variables to configure the server:
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29"></a>
 
-#### [function](49e5) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
+#### [function](f57b) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
 
 Starts Open `RPC` `API` server on given `PORT` and `INTERFACE`.
 Also it configures logging and Slynk.
@@ -82,13 +82,13 @@ You will find more details in the [`40ants-slynk`][04ac] system documentation.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29"></a>
 
-#### [function](6714) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
+#### [function](dfdb) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
 
 Stops `API` server running on given `PORT` and `INTERFACE`.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29"></a>
 
-#### [function](9655) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
+#### [function](dbf8) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
 
 Entry point for `API` webserver, started in the Docker or Kubernetes.
 It works like a [`start`][999c] but blocks forever.
@@ -101,9 +101,9 @@ It works like a [`start`][999c] but blocks forever.
 [04ac]: https://40ants.com/slynk/#x-28-23A-28-2812-29-20BASE-CHAR-20-2E-20-2240ants-slynk-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29
 [8702]: https://github.com/40ants/40ants-openrpc
 [bc95]: https://github.com/40ants/40ants-openrpc/actions
-[49e5]: https://github.com/40ants/40ants-openrpc/blob/b33df74b2500fe4908273ac58dee70f6ab4ee474/src/server.lisp#L40
-[6714]: https://github.com/40ants/40ants-openrpc/blob/b33df74b2500fe4908273ac58dee70f6ab4ee474/src/server.lisp#L82
-[9655]: https://github.com/40ants/40ants-openrpc/blob/b33df74b2500fe4908273ac58dee70f6ab4ee474/src/server.lisp#L92
+[f57b]: https://github.com/40ants/40ants-openrpc/blob/bd3007984333e15c4b8f4b72794ccc0c062e9de6/src/server.lisp#L40
+[dfdb]: https://github.com/40ants/40ants-openrpc/blob/bd3007984333e15c4b8f4b72794ccc0c062e9de6/src/server.lisp#L82
+[dbf8]: https://github.com/40ants/40ants-openrpc/blob/bd3007984333e15c4b8f4b72794ccc0c062e9de6/src/server.lisp#L92
 [a84b]: https://github.com/40ants/40ants-openrpc/issues
 [422a]: https://quickdocs.org/40ants-logging
 [2e1d]: https://quickdocs.org/40ants-slynk
