@@ -11,6 +11,10 @@
                 #:make-clack-app)
   (:import-from #:clack-cors
                 #:make-cors-middleware)
+  (:import-from #:clack-prometheus
+                #:with-prometheus-stats)
+  (:import-from #:openrpc-server/clack
+                #:app-middlewares)
   (:export #:start
            #:stop
            #:start-in-production))
@@ -39,9 +43,9 @@
 
 
 (defun start (&key (port *default-port*)
-                (api openrpc-server/api::default-api)
-                (interface *default-interface*)
-                (debug nil))
+                   (api openrpc-server/api::default-api)
+                   (interface *default-interface*)
+                   (debug nil))
   "Starts Open RPC API server on given PORT and INTERFACE.
    Also it configures logging and Slynk.
 
@@ -61,21 +65,24 @@
   (40ants-slynk:start-slynk-if-needed)
   (local-time:reread-timezone-repository)
 
+  ;; TODO: probably is should move this code to 40ants-pg somehow?
   (let ((postgres-certs-file
           (probe-file "~/.postgresql/root.crt")))
     (when postgres-certs-file
       (cl+ssl:ssl-load-global-verify-locations postgres-certs-file)))
 
-  (register-server port interface
-                   (clackup
-                    (make-cors-middleware
-                     (make-clack-app :api api :indent-json t)
-                     :allowed-origin (or (uiop:getenv "CORS_ALLOWED_ORIGIN")
-                                         clack-cors:*default-allowed-origin*)
-                     :allowed-headers (or (uiop:getenv "CORS_ALLOWED_HEADERS")
-                                          clack-cors:*default-allowed-headers*))
-                    :address interface
-                    :port port))
+  (let* ((main-app (make-clack-app api :indent-json t))
+         (middlewares-plist (app-middlewares api))
+         (app (loop with app = main-app
+                    for (middleware-name middleware) on middlewares-plist by #'cddr
+                    do (log:debug "Applying middleware" middleware-name)
+                       (setf app
+                             (funcall middleware app))
+                    finally (return app))))
+    (register-server port interface
+                     (clackup app
+                              :address interface
+                              :port port)))
   (log:info "Server started" api)
   (values))
 
