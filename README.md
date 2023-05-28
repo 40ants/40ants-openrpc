@@ -6,7 +6,7 @@
 
 ## 40ANTS-OPENRPC ASDF System Details
 
-* Version: 0.1.0
+* Version: 0.2.0
 
 * Description: A set of helpers to start `JSON-RPC` server based on https://40ants.com/openrpc/ library.
 
@@ -20,7 +20,7 @@
 
 * Source control: [GIT][8702]
 
-* Depends on: [40ants-logging][422a], [40ants-slynk][2e1d], [cl+ssl][fca9], [clack][482d], [clack-cors][087e], [local-time][46a1], [openrpc-server][c8e7]
+* Depends on: [40ants-logging][422a], [40ants-slynk][2e1d], [alexandria][8236], [cl+ssl][fca9], [cl-json-web-tokens][674d], [clack][482d], [clack-cors][087e], [clack-prometheus][babd], [dexador][8347], [jsonrpc][a9bd], [lack-request][6a02], [local-time][46a1], [log4cl][7f8b], [log4cl-extras][691c], [openrpc-client][b8fd], [openrpc-server][c8e7], [serapeum][c41d], [with-user-abort][ad05]
 
 [![](https://github-actions.40ants.com/40ants/40ants-openrpc/matrix.svg?only=ci.run-tests)][bc95]
 
@@ -70,9 +70,53 @@ This system uses following environment variables to configure the server:
 
 ### API
 
+<a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FJWT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+#### 40ANTS-OPENRPC/JWT
+
+<a id="x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FJWT-22-29-20PACKAGE-29"></a>
+
+##### [package](3bf9) `40ants-openrpc/jwt`
+
+<a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+##### Functions
+
+<a id="x-2840ANTS-OPENRPC-2FJWT-3ADECODE-20FUNCTION-29"></a>
+
+###### [function](f808) `40ants-openrpc/jwt:decode` token
+
+<a id="x-2840ANTS-OPENRPC-2FJWT-3AISSUE-TOKEN-20FUNCTION-29"></a>
+
+###### [function](f6ed) `40ants-openrpc/jwt:issue-token` payload &key ttl
+
+Encodes payload into a `JWT` token.
+
+If `TTL` argument is given, it should be specified in seconds. After this number of seconds, token will become invalid.
+
+<a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+##### Macros
+
+<a id="x-2840ANTS-OPENRPC-2FJWT-3AWITH-SESSION-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
+
+###### [macro](ff1c) `40ants-openrpc/jwt:with-session` ((&REST BINDINGS) &KEY (REQUIRE T) (PROCESSORS '(("roles" . ENSURE-LIST-OF-KEYWORDS)))) &BODY BODY
+
+<a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FSERVER-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+#### 40ANTS-OPENRPC/SERVER
+
+<a id="x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FSERVER-22-29-20PACKAGE-29"></a>
+
+##### [package](2e68) `40ants-openrpc/server`
+
+<a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FSERVER-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+##### Functions
+
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29"></a>
 
-#### [function](bdf0) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
+###### [function](9213) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
 
 Starts Open `RPC` `API` server on given `PORT` and `INTERFACE`.
 Also it configures logging and Slynk.
@@ -80,18 +124,34 @@ Also it configures logging and Slynk.
 Slynk is started only if `SLYNK`_`PORT` env variable is set to some value.
 You will find more details in the [`40ants-slynk`][04ac] system documentation.
 
-<a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29"></a>
-
-#### [function](192f) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
-
-Stops `API` server running on given `PORT` and `INTERFACE`.
-
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29"></a>
 
-#### [function](a9b9) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
+###### [function](ec79) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
 
 Entry point for `API` webserver, started in the Docker or Kubernetes.
 It works like a [`start`][999c] but blocks forever.
+
+<a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29"></a>
+
+###### [function](3ea4) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
+
+Stops `API` server running on given `PORT` and `INTERFACE`.
+
+<a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FCLIENT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+#### 40ANTS-OPENRPC/CLIENT
+
+<a id="x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FCLIENT-22-29-20PACKAGE-29"></a>
+
+##### [package](258b) `40ants-openrpc/client`
+
+<a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FCLIENT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+##### Macros
+
+<a id="x-2840ANTS-OPENRPC-2FCLIENT-3AGENERATE-CLIENT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
+
+###### [macro](ffa3) `40ants-openrpc/client:generate-client` name url
 
 
 [e778]: https://40ants.com/40ants-openrpc/
@@ -101,17 +161,35 @@ It works like a [`start`][999c] but blocks forever.
 [04ac]: https://40ants.com/slynk/#x-28-23A-28-2812-29-20BASE-CHAR-20-2E-20-2240ants-slynk-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29
 [8702]: https://github.com/40ants/40ants-openrpc
 [bc95]: https://github.com/40ants/40ants-openrpc/actions
-[bdf0]: https://github.com/40ants/40ants-openrpc/blob/26deb66dfeaa86356ab890dbe5f9ff8c9aaaaa6f/src/server.lisp#L40
-[192f]: https://github.com/40ants/40ants-openrpc/blob/26deb66dfeaa86356ab890dbe5f9ff8c9aaaaa6f/src/server.lisp#L82
-[a9b9]: https://github.com/40ants/40ants-openrpc/blob/26deb66dfeaa86356ab890dbe5f9ff8c9aaaaa6f/src/server.lisp#L92
+[258b]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/client.lisp#L1
+[ffa3]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/client.lisp#L36
+[3bf9]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/jwt.lisp#L1
+[f808]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/jwt.lisp#L28
+[f6ed]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/jwt.lisp#L32
+[ff1c]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/jwt.lisp#L71
+[2e68]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/server.lisp#L1
+[ec79]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/server.lisp#L100
+[9213]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/server.lisp#L45
+[3ea4]: https://github.com/40ants/40ants-openrpc/blob/8363507d17a857731c2bbbdfaf8e08f5835cc6c8/src/server.lisp#L90
 [a84b]: https://github.com/40ants/40ants-openrpc/issues
 [422a]: https://quickdocs.org/40ants-logging
 [2e1d]: https://quickdocs.org/40ants-slynk
+[8236]: https://quickdocs.org/alexandria
 [fca9]: https://quickdocs.org/cl+ssl
+[674d]: https://quickdocs.org/cl-json-web-tokens
 [482d]: https://quickdocs.org/clack
 [087e]: https://quickdocs.org/clack-cors
+[babd]: https://quickdocs.org/clack-prometheus
+[8347]: https://quickdocs.org/dexador
+[a9bd]: https://quickdocs.org/jsonrpc
+[6a02]: https://quickdocs.org/lack-request
 [46a1]: https://quickdocs.org/local-time
+[7f8b]: https://quickdocs.org/log4cl
+[691c]: https://quickdocs.org/log4cl-extras
+[b8fd]: https://quickdocs.org/openrpc-client
 [c8e7]: https://quickdocs.org/openrpc-server
+[c41d]: https://quickdocs.org/serapeum
+[ad05]: https://quickdocs.org/with-user-abort
 
 * * *
 ###### [generated by [40ANTS-DOC](https://40ants.com/doc/)]
