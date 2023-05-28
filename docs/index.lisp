@@ -17,6 +17,8 @@
                 #:start-in-production)
   (:import-from #:docs-config
                 #:docs-config)
+  (:import-from #:40ants-doc/autodoc
+                #:defautodoc)
   (:export #:@index
            #:@readme
            #:@changelog))
@@ -43,6 +45,7 @@
                     :ignore-words ("JSON"
                                    "HTTP"
                                    "TODO"
+                                   "JWT"
                                    "RPC"
                                    "ASDF:PACKAGE-INFERRED-SYSTEM"
                                    "ASDF"
@@ -111,7 +114,4 @@ This system uses following environment variables to configure the server:
   (@api section))
 
 
-(defsection @api (:title "API")
-  (start function)
-  (stop function)
-  (start-in-production function))
+(defautodoc @api (:system "40ants-openrpc"))

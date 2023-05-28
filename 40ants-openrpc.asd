@@ -10,5 +10,6 @@
   :defsystem-depends-on ("40ants-asdf-system")
   :pathname "src"
   :depends-on ("40ants-openrpc/server"
-               "40ants-openrpc/client")
+               "40ants-openrpc/client"
+               "40ants-openrpc/jwt")
   :in-order-to ((test-op (test-op "40ants-openrpc-tests"))))

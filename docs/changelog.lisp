@@ -8,6 +8,7 @@
 (defchangelog (:ignore-words ("SLY"
                               "ASDF"
                               "REPL"
+                              "JWT"
                               "HTTP"))
   (0.2.0 2023-05-27
          "
