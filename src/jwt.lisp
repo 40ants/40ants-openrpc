@@ -48,19 +48,15 @@
 
 
 (defun decode-current-jwt-token ()
-  (cond
-    ((boundp '*test-token*)
-     *test-token*)
-    (t
-     (let* ((headers (request-headers *current-request*))
-            (token (gethash "authorization" headers)))
-       (when token
-         (handler-case
-             (with-log-unhandled ()
-               (decode token))
-           (error (c)
-             (openrpc-server:return-error (format nil "Невозможно распарсить Authorization токен: ~A"
-                                                  c)))))))))
+  (let* ((headers (request-headers *current-request*))
+         (token (gethash "authorization" headers)))
+    (when token
+      (handler-case
+          (with-log-unhandled ()
+            (decode token))
+        (error (c)
+          (openrpc-server:return-error (format nil "Невозможно распарсить Authorization токен: ~A"
+                                               c)))))))
 
 
 (defun ensure-list-of-keywords (items)
