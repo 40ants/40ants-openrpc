@@ -10,6 +10,12 @@
                               "REPL"
                               "JWT"
                               "HTTP"))
+  (0.3.0 2023-11-17
+         "
+## Additions
+
+* Added 40ANTS-OPENRPC/JWT:WITH-TEST-TOKEN macro which allows to simulate \"authenticated\" requests using Lack test client.
+")
   (0.2.0 2023-05-27
          "
 ## Changes

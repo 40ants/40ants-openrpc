@@ -14,9 +14,12 @@
                 #:ensure-list
                 #:make-keyword
                 #:with-gensyms)
+  (:import-from #:serapeum
+                #:dict)
   (:export #:decode
            #:issue-token
-           #:with-session))
+           #:with-session
+           #:with-test-token))
 (in-package #:40ants-openrpc/jwt)
 
 
@@ -45,6 +48,19 @@
                             :expiration (when ttl
                                           (+ (get-universal-time)
                                              ttl))))
+
+
+(defun call-with-test-token (token thunk)
+  (let* ((*current-request* (lack.request:make-request (list :headers
+                                                             (dict))))
+         (headers (lack.request:request-headers *current-request*)))
+    (setf (gethash "authorization" headers)
+          token)
+    (funcall thunk)))
+
+
+(defmacro with-test-token ((token) &body body)
+  `(call-with-test-token ,token (lambda () ,@body)))
 
 
 (defun decode-current-jwt-token ()
@@ -89,3 +105,4 @@
                          :code 3))
          (let (,@bindings)
            ,@body)))))
+
