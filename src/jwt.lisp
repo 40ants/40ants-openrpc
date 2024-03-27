@@ -38,9 +38,6 @@
    If TTL argument is given, it should be specified in seconds. After this number of seconds, token will become invalid."
   (check-type ttl (or null
                       integer))
-  ;; We need this patched version of the library
-  ;; until for this pull will be merged:
-  ;; https://github.com/eyedouble/cl-json-web-tokens/pulls
   (cl-json-web-tokens:issue payload
                             :algorithm :hs256
                             :secret (get-jwt-secret)
@@ -71,7 +68,7 @@
           (with-log-unhandled ()
             (decode token))
         (error (c)
-          (openrpc-server:return-error (format nil "Невозможно распарсить Authorization токен: ~A"
+          (openrpc-server:return-error (format nil "Unable to parse Authorization token: ~A"
                                                c)))))))
 
 
