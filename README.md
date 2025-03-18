@@ -64,7 +64,7 @@ This system uses following environment variables to configure the server:
 
 <a id="x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FCLIENT-22-29-20PACKAGE-29"></a>
 
-##### [package](2ee9) `40ants-openrpc/client`
+##### [package](4914) `40ants-openrpc/client`
 
 <a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FCLIENT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -72,7 +72,7 @@ This system uses following environment variables to configure the server:
 
 <a id="x-2840ANTS-OPENRPC-2FCLIENT-3AGENERATE-CLIENT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-###### [macro](3f4a) `40ants-openrpc/client:generate-client` name url
+###### [macro](1e24) `40ants-openrpc/client:generate-client` name url
 
 <a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FJWT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -80,7 +80,7 @@ This system uses following environment variables to configure the server:
 
 <a id="x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FJWT-22-29-20PACKAGE-29"></a>
 
-##### [package](51b6) `40ants-openrpc/jwt`
+##### [package](6895) `40ants-openrpc/jwt`
 
 <a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -88,11 +88,11 @@ This system uses following environment variables to configure the server:
 
 <a id="x-2840ANTS-OPENRPC-2FJWT-3ADECODE-20FUNCTION-29"></a>
 
-###### [function](158d) `40ants-openrpc/jwt:decode` token
+###### [function](c47f) `40ants-openrpc/jwt:decode` token
 
 <a id="x-2840ANTS-OPENRPC-2FJWT-3AISSUE-TOKEN-20FUNCTION-29"></a>
 
-###### [function](0c73) `40ants-openrpc/jwt:issue-token` payload &key ttl
+###### [function](7ab0) `40ants-openrpc/jwt:issue-token` payload &key ttl
 
 Encodes payload into a `JWT` token.
 
@@ -104,11 +104,11 @@ If `TTL` argument is given, it should be specified in seconds. After this number
 
 <a id="x-2840ANTS-OPENRPC-2FJWT-3AWITH-SESSION-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-###### [macro](dce3) `40ants-openrpc/jwt:with-session` ((&REST BINDINGS) &KEY (REQUIRE T) (PROCESSORS '(("roles" . ENSURE-LIST-OF-KEYWORDS)))) &BODY BODY
+###### [macro](c578) `40ants-openrpc/jwt:with-session` ((&REST BINDINGS) &KEY (REQUIRE T) (PROCESSORS '(("roles" . ENSURE-LIST-OF-KEYWORDS)))) &BODY BODY
 
 <a id="x-2840ANTS-OPENRPC-2FJWT-3AWITH-TEST-TOKEN-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-###### [macro](3a89) `40ants-openrpc/jwt:with-test-token` (token) &body body
+###### [macro](4619) `40ants-openrpc/jwt:with-test-token` (token) &body body
 
 <a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FSERVER-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -116,7 +116,7 @@ If `TTL` argument is given, it should be specified in seconds. After this number
 
 <a id="x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FSERVER-22-29-20PACKAGE-29"></a>
 
-##### [package](e3c5) `40ants-openrpc/server`
+##### [package](b742) `40ants-openrpc/server`
 
 <a id="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FSERVER-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -124,7 +124,7 @@ If `TTL` argument is given, it should be specified in seconds. After this number
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29"></a>
 
-###### [function](29f1) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
+###### [function](c5ab) `40ants-openrpc/server:start` &key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)
 
 Starts Open `RPC` `API` server on given `PORT` and `INTERFACE`.
 Also it configures logging and Slynk.
@@ -134,14 +134,14 @@ You will find more details in the [`40ants-slynk`][04ac] system documentation.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29"></a>
 
-###### [function](e6dd) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
+###### [function](c57f) `40ants-openrpc/server:start-in-production` &key (api openrpc-server/api::default-api)
 
 Entry point for `API` webserver, started in the Docker or Kubernetes.
 It works like a [`start`][999c] but blocks forever.
 
 <a id="x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29"></a>
 
-###### [function](0a77) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
+###### [function](c988) `40ants-openrpc/server:stop` &key (port \*default-port\*) (interface \*default-interface\*)
 
 Stops `API` server running on given `PORT` and `INTERFACE`.
 
@@ -153,17 +153,17 @@ Stops `API` server running on given `PORT` and `INTERFACE`.
 [04ac]: https://40ants.com/slynk/#x-28-23A-28-2812-29-20BASE-CHAR-20-2E-20-2240ants-slynk-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29
 [8702]: https://github.com/40ants/40ants-openrpc
 [bc95]: https://github.com/40ants/40ants-openrpc/actions
-[2ee9]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/client.lisp#L1
-[3f4a]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/client.lisp#L36
-[51b6]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/jwt.lisp#L1
-[158d]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/jwt.lisp#L31
-[0c73]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/jwt.lisp#L35
-[3a89]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/jwt.lisp#L59
-[dce3]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/jwt.lisp#L80
-[e3c5]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/server.lisp#L1
-[e6dd]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/server.lisp#L100
-[29f1]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/server.lisp#L45
-[0a77]: https://github.com/40ants/40ants-openrpc/blob/5296d105262c9c580430cbcca603726cea8b29b6/src/server.lisp#L90
+[4914]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/client.lisp#L1
+[1e24]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/client.lisp#L36
+[6895]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L1
+[c47f]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L31
+[7ab0]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L35
+[4619]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L59
+[c578]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L80
+[b742]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L1
+[c57f]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L100
+[c5ab]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L45
+[c988]: https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L90
 [a84b]: https://github.com/40ants/40ants-openrpc/issues
 [422a]: https://quickdocs.org/40ants-logging
 [2e1d]: https://quickdocs.org/40ants-slynk
