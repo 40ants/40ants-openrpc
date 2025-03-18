@@ -1,8 +1,2 @@
 dist ultralisp http://dist.ultralisp.org/
 
-# This branch is what I use in my Emacs.
-# github slynk svetlyak40wt/sly :branch patches
-
-# Waiting for this pull:
-# https://github.com/eyedouble/cl-json-web-tokens/pulls
-# github cl-json-web-tokens svetlyak40wt/cl-json-web-tokens :branch fix-padding-on-decode
