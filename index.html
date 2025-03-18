@@ -1,0 +1,130 @@
+<html lang=en>
+ <head>
+  <meta charset=UTF-8><meta name=viewport
+      content="width=device-width, initial-scale=1">
+  <title>40ants-openrpc - A set of helpers to start JSON-RPC server based on 
+   https://40ants.com/openrpc/ library.</title>
+  <link rel=alternate
+        href="https://40ants.com/40ants-openrpc/changelog.xml"
+        type="application/rss+xml">
+  <link rel=stylesheet type="text/css"
+        href=theme.css>
+  <script type="text/javascript" src=jquery.js></script>
+  <script type="text/javascript" src=toc.js></script>
+  <script type="text/javascript">$(document).ready(function() {$('a:has(img)').css('border-bottom', 'none')})</script>
+  <link rel=stylesheet type="text/css"
+      href=highlight.min.css>
+  <script type="text/javascript"
+          src=highlight.min.js></script>
+  <script type="text/javascript">hljs.highlightAll();</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FL71WXK73K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FL71WXK73K');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(42462884, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/42462884" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+ </head>
+ <body>
+  <div class=page><a id=fork-me href="https://github.com/40ants/40ants-openrpc">Fork me on GitHub</a>
+   <div class=navbar>
+    <div class=navbar-inner>
+     <a class=brand href="/">
+      <img class=logo
+           src="https://40ants.com/img/logo.svg"></a>
+     <ul class=nav>
+      <li><a href="/posts/">Blog</a>
+      <li><a href="/ru/posts/">Blog (RU)</a>
+      <li><a href="/tips/">Lisp Tips</a>
+      <li><a href="/projects/">Our Projects</a>
+      <li><a href="/about/">About</a>
+     </ul>
+    </div>
+   </div>
+   <input type=checkbox id=sidebar-check>
+   <label for=sidebar-check>
+    <div id=sidebar-trigger>
+     <span></span><span></span><span></span>
+    </div></label><div class=sidebar><div class=header><form class=search method=GET action="search/">
+      <input type=text name=q>
+      <input type=submit value=Search><span id=search-progress></span>
+     </form>
+    </div><div class=content><div class=page-toc><ul><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">40ants-openrpc - A set of helpers to start JSON-RPC server based on https://40ants.com/openrpc/ library.</a></p><ul><li><p><a href="#40-ants-openrpc-asdf-system-details" data-document="" data-node="40-ants-openrpc-asdf-system-details">40ANTS-OPENRPC ASDF System Details</a></p></li><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Installation</a></p></li><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Usage</a></p><ul><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">API</a></p><ul><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FCLIENT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FCLIENT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">40ANTS-OPENRPC/CLIENT</a></p><ul><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FCLIENT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FCLIENT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Macros</a></p></li></ul></li><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FJWT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FJWT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">40ANTS-OPENRPC/JWT</a></p><ul><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Functions</a></p></li><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Macros</a></p></li></ul></li><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FSERVER-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FSERVER-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">40ANTS-OPENRPC/SERVER</a></p><ul><li><p><a href="#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FSERVER-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="" data-node="x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FSERVER-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">Functions</a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><a href="changelog/#x-2840ANTS-OPENRPC-DOCS-2FCHANGELOG-3A-40CHANGELOG-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29" data-document="changelog/" data-node="x-2840ANTS-OPENRPC-DOCS-2FCHANGELOG-3A-40CHANGELOG-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29">ChangeLog</a></p></li></ul>
+     </div>
+    </div><div class=footer>
+     <a href="https://40ants.com/doc">[generated by 40ANTS-DOC]</a>
+    </div>
+   </div><div class=content role=main><h1>40ants-openrpc - A set of helpers to start JSON-RPC server based on https://40ants.com/openrpc/ library.<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-40INDEX-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h1><h2 id="40-ants-openrpc-asdf-system-details">40ANTS-OPENRPC ASDF System Details</h2><ul><li><p>Description: A set of helpers to start <code>JSON-RPC</code> server based on https://40ants.com/openrpc/ library.</p></li><li><p>Licence: Unlicense</p></li><li><p>Author: Alexander Artemenko &lt;svetlyak.40wt@gmail.com&gt;</p></li><li><p>Homepage: <a href="https://40ants.com/40ants-openrpc/">https://40ants.com/40ants-openrpc/</a></p></li><li><p>Bug tracker: <a href="https://github.com/40ants/40ants-openrpc/issues">https://github.com/40ants/40ants-openrpc/issues</a></p></li><li><p>Source control: <a href="https://github.com/40ants/40ants-openrpc">GIT</a></p></li><li><p>Depends on: <a href="https://quickdocs.org/40ants-logging">40ants-logging</a>, <a href="https://quickdocs.org/40ants-slynk">40ants-slynk</a>, <a href="https://quickdocs.org/alexandria">alexandria</a>, <a href="https://quickdocs.org/cl+ssl">cl+ssl</a>, <a href="https://quickdocs.org/cl-json-web-tokens">cl-json-web-tokens</a>, <a href="https://quickdocs.org/clack">clack</a>, <a href="https://quickdocs.org/clack-cors">clack-cors</a>, <a href="https://quickdocs.org/clack-prometheus">clack-prometheus</a>, <a href="https://quickdocs.org/dexador">dexador</a>, <a href="https://quickdocs.org/jsonrpc">jsonrpc</a>, <a href="https://quickdocs.org/lack-request">lack-request</a>, <a href="https://quickdocs.org/local-time">local-time</a>, <a href="https://quickdocs.org/log4cl">log4cl</a>, <a href="https://quickdocs.org/log4cl-extras">log4cl-extras</a>, <a href="https://quickdocs.org/openrpc-client">openrpc-client</a>, <a href="https://quickdocs.org/openrpc-server">openrpc-server</a>, <a href="https://quickdocs.org/serapeum">serapeum</a>, <a href="https://quickdocs.org/with-user-abort">with-user-abort</a></p></li></ul><p><a href="https://github.com/40ants/40ants-openrpc/actions"><img src="https://github-actions.40ants.com/40ants/40ants-openrpc/matrix.svg?only=ci.run-tests"/></a></p><p><img src="http://quickdocs.org/badge/40ants-openrpc.svg"/></p><h2>Installation<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40INSTALLATION-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h2><p>You can install this library from Quicklisp, but you want to receive updates quickly, then install it from Ultralisp.org:</p><pre><code class="">(ql-dist:install-dist &quot;http://dist.ultralisp.org/&quot;
+                      :prompt nil)
+(ql:quickload :40ants-openrpc)</code></pre><h2>Usage<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40USAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h2><p>This is a set of opionated helpers for starting Common Lisp <code>OpenRPC</code> servers which uses:</p><ul><li><p>https://40ants.com/openrpc/</p></li><li><p>https://40ants.com/logging/</p></li><li><p>https://40ants.com/slynk/</p></li></ul><p>Also, it can manage a multiple Open<code>RPC</code> servers in the one Lisp image.</p><p>The easiest way to start a server is to define one or more api methods using <code>OpenRPC</code> library
+and then call <a href="https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29" data-document="https://40ants.com/40ants-openrpc/" data-node="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29"><code>start</code></a>. This will bring <code>API</code> on http://localhost:8000/ and it's spec will be available
+as http://localhost:8000/openrpc.json</p><p>This system uses following environment variables to configure the server:</p><ul><li><p><code>APP_PORT</code> and <code>APP_INTERFACE</code> are used in <a href="https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29" data-document="https://40ants.com/40ants-openrpc/" data-node="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29"><code>start-in-production</code></a> function to control on which port and interface
+  <code>API</code> should be started on.</p></li><li><p><code>DEBUG</code> also used in <a href="https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29" data-document="https://40ants.com/40ants-openrpc/" data-node="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29"><code>start-in-production</code></a> function to control how verbose logging should be. If it is given
+  then logging will be with <code>DEBUG</code> level.</p></li><li><p><code>CORS_ALLOWED_ORIGIN</code> and <code>CORS_ALLOWED_HEADERS</code> are control how <code>API</code> will respond with <code>CORS</code> related headers.
+  Learn more about used middleware in <a href="https://40ants.com/clack-cors/#x-28-23A-28-2810-29-20BASE-CHAR-20-2E-20-22clack-cors-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29"><code>clack-cors</code></a> system documentation.</p></li></ul><h3>API<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-40API-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h3><h4>40ANTS-OPENRPC/CLIENT<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FCLIENT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FCLIENT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h4><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/client.lisp#L1">package</a><div class=reference-object><div class=object-name><a href=#x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FCLIENT-22-29-20PACKAGE-29 id=x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FCLIENT-22-29-20PACKAGE-29>40ants-openrpc/client</a></div></div><a class=bullet-link href=#x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FCLIENT-22-29-20PACKAGE-29></a></div></div><h5>Macros<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FCLIENT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FCLIENT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h5><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/client.lisp#L36">macro</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FCLIENT-3AGENERATE-CLIENT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29 id=x-2840ANTS-OPENRPC-2FCLIENT-3AGENERATE-CLIENT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29>40ants-openrpc/client:generate-client</a></div><div class=object-args><span class=locative-args>name url</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FCLIENT-3AGENERATE-CLIENT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29></a></div></div><h4>40ANTS-OPENRPC/JWT<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FJWT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FJWT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h4><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L1">package</a><div class=reference-object><div class=object-name><a href=#x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FJWT-22-29-20PACKAGE-29 id=x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FJWT-22-29-20PACKAGE-29>40ants-openrpc/jwt</a></div></div><a class=bullet-link href=#x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FJWT-22-29-20PACKAGE-29></a></div></div><h5>Functions<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h5><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L31">function</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FJWT-3ADECODE-20FUNCTION-29 id=x-2840ANTS-OPENRPC-2FJWT-3ADECODE-20FUNCTION-29>40ants-openrpc/jwt:decode</a></div><div class=object-args><span class=locative-args>token</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FJWT-3ADECODE-20FUNCTION-29></a></div></div><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L35">function</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FJWT-3AISSUE-TOKEN-20FUNCTION-29 id=x-2840ANTS-OPENRPC-2FJWT-3AISSUE-TOKEN-20FUNCTION-29>40ants-openrpc/jwt:issue-token</a></div><div class=object-args><span class=locative-args>payload &amp;key ttl</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FJWT-3AISSUE-TOKEN-20FUNCTION-29></a></div><div class=bullet-content><p>Encodes payload into a <code>JWT</code> token.</p><p>If <code>TTL</code> argument is given, it should be specified in seconds. After this number of seconds, token will become invalid.</p></div></div><h5>Macros<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FJWT-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h5><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L80">macro</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FJWT-3AWITH-SESSION-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29 id=x-2840ANTS-OPENRPC-2FJWT-3AWITH-SESSION-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29>40ants-openrpc/jwt:with-session</a></div><div class=object-args><span class=locative-args>((&amp;REST BINDINGS) &amp;KEY (REQUIRE T) (PROCESSORS &#39;((&quot;roles&quot; . ENSURE-LIST-OF-KEYWORDS)))) &amp;BODY BODY</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FJWT-3AWITH-SESSION-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29></a></div></div><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/jwt.lisp#L59">macro</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FJWT-3AWITH-TEST-TOKEN-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29 id=x-2840ANTS-OPENRPC-2FJWT-3AWITH-TEST-TOKEN-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29>40ants-openrpc/jwt:with-test-token</a></div><div class=object-args><span class=locative-args>(token) &amp;body body</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FJWT-3AWITH-TEST-TOKEN-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29></a></div></div><h4>40ANTS-OPENRPC/SERVER<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FSERVER-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-4040ANTS-OPENRPC-2FSERVER-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h4><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L1">package</a><div class=reference-object><div class=object-name><a href=#x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FSERVER-22-29-20PACKAGE-29 id=x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FSERVER-22-29-20PACKAGE-29>40ants-openrpc/server</a></div></div><a class=bullet-link href=#x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-2240ANTS-OPENRPC-2FSERVER-22-29-20PACKAGE-29></a></div></div><h5>Functions<a class=header-link
+     href=#x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FSERVER-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29
+     title="Permalink to this headline"
+     id=x-2840ANTS-OPENRPC-DOCS-2FINDEX-3A-3A-7C-4040ANTS-OPENRPC-2FSERVER-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29></a></h5><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L45">function</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29 id=x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29>40ants-openrpc/server:start</a></div><div class=object-args><span class=locative-args>&amp;key (port \*default-port\*) (api openrpc-server/api::default-api) (interface \*default-interface\*) (debug nil)</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29></a></div><div class=bullet-content><p>Starts Open <code>RPC</code> <code>API</code> server on given <code>PORT</code> and <code>INTERFACE</code>.
+Also it configures logging and Slynk.</p><p>Slynk is started only if <code>SLYNK</code>_<code>PORT</code> env variable is set to some value.
+You will find more details in the <a href="https://40ants.com/slynk/#x-28-23A-28-2812-29-20BASE-CHAR-20-2E-20-2240ants-slynk-22-29-20ASDF-2FSYSTEM-3ASYSTEM-29"><code>40ants-slynk</code></a> system documentation.</p></div></div><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L100">function</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29 id=x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29>40ants-openrpc/server:start-in-production</a></div><div class=object-args><span class=locative-args>&amp;key (api openrpc-server/api::default-api)</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-IN-PRODUCTION-20FUNCTION-29></a></div><div class=bullet-content><p>Entry point for <code>API</code> webserver, started in the Docker or Kubernetes.
+It works like a <a href="https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29" data-document="https://40ants.com/40ants-openrpc/" data-node="x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29"><code>start</code></a> but blocks forever.</p></div></div><div class=reference-bullet><div class=reference-bullet-header><a class=locative-type href="https://github.com/40ants/40ants-openrpc/blob/32b8dcbeeddc8317c5819ac643b8df20d8f03ed4/src/server.lisp#L90">function</a><div class=reference-object><div class=object-name><a href=#x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29 id=x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29>40ants-openrpc/server:stop</a></div><div class=object-args><span class=locative-args>&amp;key (port \*default-port\*) (interface \*default-interface\*)</span></div></div><a class=bullet-link href=#x-2840ANTS-OPENRPC-2FSERVER-3ASTOP-20FUNCTION-29></a></div><div class=bullet-content><p>Stops <code>API</code> server running on given <code>PORT</code> and <code>INTERFACE</code>.</p></div></div>
+   </div><div class=footer>
+    <hr class=separator>
+    <p class=fineprint>Created with passion by <em>40Ants</em><a class=lisp-logo
+     href="http://lisp-lang.org/">
+      <img
+           src="https://40ants.com/img/made-with-lisp.svg"></a>
+   </div>
+  </div>
+ </body>
+</html>
