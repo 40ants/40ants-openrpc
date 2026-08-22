@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+    <channel>
+        <title>40ants-openrpc-docs ChangeLog</title>
+        <link>https://40ants.com/40ants-openrpc/</link>
+        <generator>xml-emitter</generator>
+        <language>en-us</language>
+        <item>
+            <title>0.3.0  (2023-11-17)</title>
+            <description>&lt;h1 id=&quot;additions&quot;&gt;Additions&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Added &lt;a href=&quot;https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FJWT-3AWITH-TEST-TOKEN-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29&quot; data-document=&quot;https://40ants.com/40ants-openrpc/&quot; data-node=&quot;x-2840ANTS-OPENRPC-2FJWT-3AWITH-TEST-TOKEN-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29&quot;&gt;&lt;code&gt;40ants-openrpc/jwt:with-test-token&lt;/code&gt;&lt;/a&gt; macro which allows to simulate &amp;quot;authenticated&amp;quot; requests using Lack test client.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.2.0  (2023-05-27)</title>
+            <description>&lt;h1 id=&quot;changes&quot;&gt;Changes&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29&quot; data-document=&quot;https://40ants.com/40ants-openrpc/&quot; data-node=&quot;x-2840ANTS-OPENRPC-2FSERVER-3ASTART-20FUNCTION-29&quot;&gt;&lt;code&gt;40ants-openrpc/server:start&lt;/code&gt;&lt;/a&gt; function now uses &lt;a href=&quot;https://40ants.com/openrpc/#x-28OPENRPC-SERVER-2FCLACK-3AAPP-MIDDLEWARES-20GENERIC-FUNCTION-29&quot;&gt;&lt;code&gt;openrpc-server/clack:app-middlewares&lt;/code&gt;&lt;/a&gt; generic-function.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h1 id=&quot;additions&quot;&gt;Additions&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Added &lt;a href=&quot;https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FCLIENT-3AGENERATE-CLIENT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29&quot; data-document=&quot;https://40ants.com/40ants-openrpc/&quot; data-node=&quot;x-2840ANTS-OPENRPC-2FCLIENT-3AGENERATE-CLIENT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29&quot;&gt;&lt;code&gt;40ants-openrpc/client:generate-client&lt;/code&gt;&lt;/a&gt; macro to generate client while storing remote spec in a local cache file.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Added &lt;a href=&quot;https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FJWT-3AWITH-SESSION-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29&quot; data-document=&quot;https://40ants.com/40ants-openrpc/&quot; data-node=&quot;x-2840ANTS-OPENRPC-2FJWT-3AWITH-SESSION-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29&quot;&gt;&lt;code&gt;40ants-openrpc/jwt:with-session&lt;/code&gt;&lt;/a&gt; macro to decode &lt;code&gt;JWT&lt;/code&gt; token and extract user-id and other params out of it. Also this package provides &lt;a href=&quot;https://40ants.com/40ants-openrpc/#x-2840ANTS-OPENRPC-2FJWT-3AISSUE-TOKEN-20FUNCTION-29&quot; data-document=&quot;https://40ants.com/40ants-openrpc/&quot; data-node=&quot;x-2840ANTS-OPENRPC-2FJWT-3AISSUE-TOKEN-20FUNCTION-29&quot;&gt;&lt;code&gt;40ants-openrpc/jwt:issue-token&lt;/code&gt;&lt;/a&gt; function which is useful for logging user in.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.1.0  (2023-05-01)</title>
+            <description>&lt;ul&gt;&lt;li&gt;&lt;p&gt;Initial version.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+        </item>
+    </channel>
+</rss>
